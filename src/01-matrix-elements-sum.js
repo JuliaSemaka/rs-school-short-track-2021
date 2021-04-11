@@ -14,8 +14,16 @@
  *
  * The result should be 9
  */
-function getMatrixElementsSum(/* matrix */) {
-  throw new Error('Not implemented');
+function getMatrixElementsSum(matrix) {
+  let sum = 0;
+  matrix.forEach((element, key) => {
+    element.forEach((item, k) => {
+      if (key === 0 || (key >= 1 && matrix[key - 1][k] !== 0)) {
+        sum += item;
+      }
+    });
+  });
+  return sum;
 }
 
 module.exports = getMatrixElementsSum;
