@@ -32,7 +32,7 @@ function getDNSStats(domains) {
     while (elem[col]) {
       let k = '';
       for (let i = 0; i <= col; i++) {
-        k += `.${elem}`;
+        k += `.${elem[i]}`;
       }
       if (!obj[k]) {
         obj[k] = 1;
