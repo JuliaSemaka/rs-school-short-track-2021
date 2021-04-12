@@ -18,11 +18,19 @@
  */
 
 function removeKFromList(l, k) {
-  const re = new RegExp(k, 'ig');
-  if (!Array.isArray(l)) {
-    return l;
+  // const prev = null;
+  let current = l;
+
+  while (current) {
+    if (current.value === k) {
+      current.value = current.next.value;
+      current.next = current.next.next;
+    } else {
+      current = current.next;
+    }
   }
-  return l.join('').replace(re, '').split('');
+
+  return l;
 }
 
 module.exports = removeKFromList;
